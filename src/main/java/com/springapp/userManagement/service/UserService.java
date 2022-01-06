@@ -66,7 +66,7 @@ public class UserService {
         return userRepository.updateUser(id, user);
     }
     public UserDTO deleteUser(long id){
-        UserDTO user = userRepository.getUserById(id);
+        UserDTO user = getUserById(id);
         userRepository.deleteUser(user.getId());
         return user;
     }
