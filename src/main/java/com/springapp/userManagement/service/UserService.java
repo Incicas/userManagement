@@ -63,7 +63,8 @@ public class UserService {
         user.setEmail(userUpdated.getEmail());
         user.setId(userUpdated.getId());
         user.setPassword(userUpdated.getPassword());
-        return userRepository.updateUser(id, user);
+        userRepository.deleteUser(id);
+        return userRepository.updateUser(user);
     }
     public UserDTO deleteUser(long id){
         UserDTO user = getUserById(id);

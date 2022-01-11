@@ -39,8 +39,8 @@ public class UserRepository {
         return user;
     }
 
-    public UserDTO updateUser(long id, UserDTO userUpdated){
-        UserDTO user = users.put(id, userUpdated);
+    public UserDTO updateUser(UserDTO userUpdated){
+        UserDTO user = users.put(userUpdated.getId(), userUpdated);
         return user;
     }
 
