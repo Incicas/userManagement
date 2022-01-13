@@ -18,13 +18,26 @@ public class UserManagementExceptionHandler extends ResponseEntityExceptionHandl
 
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<String> handleUserNotFoundException(UserNotFoundException e,
-                                                              HttpServletRequest request){
+                                                              HttpServletRequest request) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
+
     @ExceptionHandler(WeakPasswordException.class)
     public ResponseEntity<String> handleWeakPasswordException(WeakPasswordException e,
-                                                              HttpServletRequest request){
+                                                              HttpServletRequest request) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
     }
 
+    @ExceptionHandler(UserDoesNotHaveCarsException.class)
+    public ResponseEntity<String> handleUserDoesNotHaveCarsException(UserDoesNotHaveCarsException e,
+                                                                     HttpServletRequest request) {
+
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+    }
+    @ExceptionHandler(CarNotFoundException.class)
+    public ResponseEntity<String> handleCarNotFoundException(CarNotFoundException e,
+                                                             HttpServletRequest request){
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+    }
 }
+
